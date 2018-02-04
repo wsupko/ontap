@@ -1,0 +1,43 @@
+---
+title: "Ontap"
+author: "Wojciech Supko"
+date: "4 lutego 2018"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+### Install (if not available already) required libraries ###
+
+if (!'data.table' %in% installed.packages()) {install.packages('data.table')}
+if (!'RPostgreSQL' %in% installed.packages()) {install.packages('RPostgreSQL')}
+if (!'ggplot2' %in% installed.packages()) {install.packages('ggplot2')}
+if (!'scales' %in% installed.packages()) {install.packages('scales')}
+
+### Load required libraries ###
+
+library(data.table)
+library(RPostgreSQL)
+library(ggplot2)
+library(scales)
+
+
+```
+
+```{r DataInput, include = FALSE }
+
+Imp.All <- fread('./data/in/Data.Sample.txt')
+
+```
+
+```{r}
+
+ggplot(Imp.All[, .(ct = .N), .(Multitap, Browar)]) + 
+    geom_bar(aes(x = Multitap, y = ct, fill = Browar), stat = 'identity') + 
+    theme_minimal() + theme(legend.position = 'none', axis.text.x = element_blank())
+
+```
+
+
+
