@@ -16,18 +16,13 @@ if (!'RPostgreSQL' %in% installed.packages()) {install.packages('RPostgreSQL')}
 if (!'ggplot2' %in% installed.packages()) {install.packages('ggplot2')}
 if (!'scales' %in% installed.packages()) {install.packages('scales')}
 
-### Load required libraries ###
+#' ### Load required libraries ###
 
 library(data.table)
 library(RPostgreSQL)
 library(ggplot2)
 library(scales)
-
-#' Here's some more prose. I can use usual markdown syntax to make things
-#' **bold** or *italics*. Let's use an example from the `dotchart()` help to
-#' make a Cleveland dot plot from the `VADeaths` data. I even bother to name
-#' this chunk, so the resulting PNG has a decent name.
-
+library(lubridate)
 
 
 #+ r DataInput, include = FALSE 
