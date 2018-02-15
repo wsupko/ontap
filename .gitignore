@@ -35,3 +35,6 @@ vignettes/*.pdf
 
 # Input data
 /data/in/*
+
+# Rmd files
+*.Rmd
